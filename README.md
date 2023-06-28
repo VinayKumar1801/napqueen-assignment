@@ -2,6 +2,8 @@
 ## Dashboard Documentation
 This documentation provides an overview and usage guide for the Dashboard application. The Dashboard is built using Material-UI and SASS, and it consists of a sidebar, a navbar, charts, and a table.
 
+![image](https://i.postimg.cc/zGYgPmc0/Screenshot-2023-06-28-215729.jpg)
+
 ## Table of Contents
 1. Installation
 2. Usage
@@ -37,6 +39,8 @@ The Charts component displays visual representations of data using charts or gra
 
 4.  Table
 The Table component is used for displaying tabular data in a structured format. It allows users to view and interact with data in rows and columns. The table in the Dashboard application may include features like sorting, filtering, or pagination to enhance the data viewing experience.
+
+![image](https://i.postimg.cc/NGrV1mqm/Screenshot-2023-06-28-215751.jpg)
 
 ## Styling
 The Dashboard application utilizes Material-UI and SASS for styling purposes. Below is a brief description of each styling framework:

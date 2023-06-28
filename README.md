@@ -37,10 +37,11 @@ The Navbar component is located at the top of the dashboard and typically contai
 3.  Charts
 The Charts component displays visual representations of data using charts or graphs. It helps users understand and analyze data in a visually appealing manner. The Dashboard application may include different types of charts such as line charts, bar charts, pie charts, or any other relevant chart types.
 
-4.  Table
+![image](https://i.postimg.cc/NGrV1mqm/Screenshot-2023-06-28-215751.jpg)
+
+5.  Table
 The Table component is used for displaying tabular data in a structured format. It allows users to view and interact with data in rows and columns. The table in the Dashboard application may include features like sorting, filtering, or pagination to enhance the data viewing experience.
 
-![image](https://i.postimg.cc/NGrV1mqm/Screenshot-2023-06-28-215751.jpg)
 
 ## Styling
 The Dashboard application utilizes Material-UI and SASS for styling purposes. Below is a brief description of each styling framework:

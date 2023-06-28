@@ -1,0 +1,19 @@
+.mainHeader{
+    padding: 20px;
+   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    .heading{
+        font-size: 25px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        .left{
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+}

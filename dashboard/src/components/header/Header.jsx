@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import "./header.scss"
 import { MenuItem, Select, TextField } from '@mui/material';
+import { styled,css } from "@mui/system";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+
 const Header = () => {
       const [selectedValue, setSelectedValue] = useState("Market Place");
       const [adValue, setAdValue] = useState("Ad. Type");
@@ -24,6 +27,20 @@ const Header = () => {
 
 
  const currentDate = new Date().toISOString().slice(0, 16);
+
+const CustomTextField = styled(TextField)(
+  ({ theme }) => css`
+    & .MuiOutlinedInput-root {
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    & .MuiOutlinedInput-notchedOutline {
+      border: none;
+    }
+  `
+);
 
   return (
     <div className="mainHeader">
@@ -69,32 +86,62 @@ const Header = () => {
         </div>
         <div className="right">
           <div>
-            <div style={{ textAlign: "right" }}>
+            <div style={{ textAlign: "right", marginBottom: "10px" }}>
               <label htmlFor="">Date & Time</label>
             </div>
-            <div style={{display:"flex",gap:"10px"}}>
+            <div
+              style={{
+                display: "flex",
+                border: "2px solid rgba(201, 201, 201, 0.47)",
+                borderRadius: "5px",
+                height: "30px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <div>
-                <TextField
+                <CustomTextField
                   type="datetime-local"
-                //   label="Start Date"
                   value={startDate}
                   onChange={handleStartDateChange}
                   variant="outlined"
-                  style={{ width: "200px", height: "32px", margin: "10px 0px" }}
-                  inputProps={{style: { height: "20px", padding: "8px" }, min: currentDate }}
+                  style={{
+                    width: "200px",
+                    height: "32px",
+                    margin: "10px 0px",
+                  }}
+                  inputProps={{
+                    style: { height: "20px", padding: "8px" },
+                    min: currentDate,
+                  }}
                 />
               </div>
               <div>
-                <TextField
+                <SwapHorizIcon />
+              </div>
+              <div>
+                <CustomTextField
                   type="datetime-local"
-                //   label="End Date"
                   value={endDate}
                   onChange={handleEndDateChange}
                   variant="outlined"
-                  style={{ width: "200px", height: "32px", margin: "10px 0px" }}
-                  inputProps={{ style: { height: "20px", padding: "8px" },min: startDate || currentDate }}
+                  style={{
+                    width: "200px",
+                    height: "32px",
+                    margin: "10px 0px",
+                  }}
+                  inputProps={{
+                    style: { height: "20px", padding: "8px" },
+                    min: startDate || currentDate,
+                  }}
                 />
               </div>
+            </div>
+
+            <div
+              style={{ textAlign: "right", fontSize: "13px", color: "grey" }}
+            >
+              <label htmlFor="">IST - Timezone</label>
             </div>
           </div>
         </div>

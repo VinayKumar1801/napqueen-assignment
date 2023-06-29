@@ -19,7 +19,7 @@ const Home = () => {
           <Widget type="conversionRateOrders" />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Latest Transactions</div>
+          <div className="listTitle">All Campaign</div>
           <Table />
         </div>
       </div>

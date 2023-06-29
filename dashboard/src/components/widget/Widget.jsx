@@ -1,6 +1,8 @@
 import { MenuItem, Select } from "@mui/material";
 import React from "react";
+import { styled, css } from "@mui/system";
 import {
+  ComposedChart,
   BarChart,
   Bar,
   LineChart,
@@ -11,7 +13,24 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import "./widget.scss"
+import DownRight from "../../assests/DownRight.png";
+import DownUp from "../../assests/DownUp.png";
+import Vector from "../../assests/Vector.png";
+import "./widget.scss";
+
+const CustomSelect = styled(Select)(
+  ({ theme }) => css`
+    & .MuiOutlinedInput-root {
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    & .MuiOutlinedInput-notchedOutline {
+      border: none;
+    }
+  `
+);
 
 const Widget = ({ type }) => {
   let chartData;
@@ -48,7 +67,7 @@ const Widget = ({ type }) => {
       ];
       chartTitle = "Click Through Rate vs Clicks";
       maxKey = "clicks";
-      minKey = "clickThroughRate";
+      minKey = "clickRate";
       maxValue = Math.max(...chartData.map((item) => item.clicks));
       minValue = Math.min(...chartData.map((item) => item.clickThroughRate));
       break;
@@ -63,7 +82,7 @@ const Widget = ({ type }) => {
       ];
       chartTitle = "Conversion Rate vs Orders";
       maxKey = "orders";
-      minKey = "conversionRate";
+      minKey = "Rate";
       maxValue = Math.max(...chartData.map((item) => item.orders));
       minValue = Math.min(...chartData.map((item) => item.conversionRate));
       break;
@@ -73,58 +92,127 @@ const Widget = ({ type }) => {
 
   return (
     <div className="chart-widget">
-      <div style={{ display: "flex", justifyContent: "space-between",height:"30px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h5 className="chart-title">{chartTitle}</h5>
-        <div style={{ display: "flex", gap: "10px" }}>
-          <h5>Last 7 days</h5>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            alignItems: "center",
+            alignContent: "center",
+          }}
+        >
+          <h5 style={{ fontWeight: "600" }}>Last 7 days</h5>
           <div>
-            <Select
+            <CustomSelect
               style={{ height: "32px", width: "40px", margin: "10px 0px" }}
             >
               <MenuItem value={10}>Dummy Data 1</MenuItem>
               <MenuItem value={20}>Dummy Data 2</MenuItem>
               <MenuItem value={30}>Dummy Data 3</MenuItem>
-            </Select>
+            </CustomSelect>
+          </div>
+          <div>
+            <img src={Vector} alt="" width={"120%"} />
           </div>
         </div>
       </div>
-      {/* <hr /> */}
+      <hr />
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          height:"30px",
-          marginBottom:"15px"
-          
+          marginBottom: "15px",
+          alignItems: "center",
+          gap: "7px",
         }}
       >
-        <h5 className="max-value">
-          Max {maxKey}: {maxValue}
-        </h5>
-        <h5 className="min-value">
-          Min {minKey}: {minValue}
-        </h5>
+        <div>
+          <label style={{ fontSize: "12px", color: "gray" }}>
+            Max {maxKey}
+          </label>
+          <p style={{ marginTop: "0px", fontSize: "14px" }}>
+            <strong>${maxValue}K</strong>
+            <span>
+              <img src={DownRight} alt="" />
+            </span>
+            19.9%
+          </p>
+        </div>
+        <div>
+          <label style={{ fontSize: "12px", color: "gray" }}>Revenue</label>
+          <p style={{ marginTop: "0px", fontSize: "14px" }}>
+            <strong>$1.8M</strong>
+            <span>
+              <img src={DownUp} alt="" />
+            </span>
+            19.9%
+          </p>
+        </div>
+        <div>
+          <label style={{ fontSize: "12px", color: "gray" }}>CPC</label>
+          <p style={{ marginTop: "0px", fontSize: "14px" }}>
+            <strong>$0.95</strong>
+            <span>
+              <img src={DownRight} alt="" />
+            </span>
+            19.9%
+          </p>
+        </div>
+        <div>
+          <label style={{ fontSize: "12px", color: "gray" }}>
+            Min {minKey}
+          </label>
+          <p style={{ marginTop: "0px", fontSize: "14px" }}>
+            <strong>${minValue}K</strong>
+            <span>
+              <img src={DownUp} alt="" />
+            </span>
+            19.9%
+          </p>
+        </div>
       </div>
       <hr />
       {type === "adSpendReturn" && (
-        <BarChart width={400} height={200} data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" />
+        <ComposedChart
+          width={400}
+          height={200}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis yAxisId="left" />
+          <YAxis yAxisId="right" orientation="right" />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="adSpend" fill="#8884d8" name="Ad Spend" />
-          <Bar dataKey="return" fill="#82ca9d" name="Return" />
-        </BarChart>
+          <Legend align="left" verticalAlign="top" height={36} />
+          <Bar yAxisId="left" dataKey="adSpend" barSize={20} fill="#413ea0" />
+          <Line
+            yAxisId="right"
+            type="monotone"
+            dataKey="return"
+            stroke="#ff7300"
+          />
+        </ComposedChart>
       )}
       {type === "clickThroughRateClicks" && (
-        <LineChart width={400} height={200} data={chartData}>
+        <LineChart
+          data={chartData}
+          width={400}
+          height={200}
+          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis yAxisId="left" />
-          <YAxis yAxisId="right" />
+          <YAxis yAxisId="right" orientation="right" />
           <Tooltip />
-          <Legend />
+          <Legend align="left" verticalAlign="top" height={36} />
           <Line
             type="monotone"
             dataKey="clickThroughRate"
@@ -142,13 +230,23 @@ const Widget = ({ type }) => {
         </LineChart>
       )}
       {type === "conversionRateOrders" && (
-        <LineChart width={400} height={200} data={chartData}>
+        <LineChart
+          width={400}
+          height={200}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis yAxisId="left" />
-          <YAxis yAxisId="right" />
+          <YAxis yAxisId="right" orientation="right" />
           <Tooltip />
-          <Legend />
+          <Legend align="left" verticalAlign="top" height={36} />
           <Line
             type="monotone"
             dataKey="conversionRate"

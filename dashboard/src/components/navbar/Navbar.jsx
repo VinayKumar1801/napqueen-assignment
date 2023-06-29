@@ -13,33 +13,33 @@ const Navbar = () => {
     <div className="navbar">
       <div className="wrapper">
         <div className="search">
-          <input type="text" placeholder="Search..." />
-          <SearchOutlinedIcon />
+          {/* <input type="text" placeholder="Search..." /> */}
+          {/* <SearchOutlinedIcon /> */}
         </div>
         <div className="items">
           <div className="item">
-            <LanguageOutlinedIcon className="icon" />
-            English
+            {/* <LanguageOutlinedIcon className="icon" /> */}
+            {/* English */}
           </div>
           <div className="item">
-            <DarkModeOutlinedIcon
-              className="icon"
-            //   onClick={() => dispatch({ type: "TOGGLE" })}
-            />
+            {/* <DarkModeOutlinedIcon */}
+              {/* className="icon" */}
+             {/* onClick={() => dispatch({ type: "TOGGLE" })} */}
+            {/* /> */}
           </div>
           <div className="item">
-            <FullscreenExitOutlinedIcon className="icon" />
+            {/* <FullscreenExitOutlinedIcon className="icon" /> */}
           </div>
           <div className="item">
-            <NotificationsNoneOutlinedIcon className="icon" />
-            <div className="counter">1</div>
+            {/* <NotificationsNoneOutlinedIcon className="icon" /> */}
+            {/* <div className="counter">1</div> */}
           </div>
           <div className="item">
-            <ChatBubbleOutlineOutlinedIcon className="icon" />
-            <div className="counter">2</div>
+            {/* <ChatBubbleOutlineOutlinedIcon className="icon" /> */}
+            {/* <div className="counter">2</div> */}
           </div>
           <div className="item">
-            <ListOutlinedIcon className="icon" />
+            {/* <ListOutlinedIcon className="icon" /> */}
           </div>
           <div className="item">
             <img

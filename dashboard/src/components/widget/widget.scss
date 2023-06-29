@@ -7,7 +7,6 @@
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   border-radius: 10px;
 
-
   .left,
   .right {
     display: flex;
@@ -28,7 +27,7 @@
     .link {
       width: max-content;
       font-size: 12px;
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid rgba(201, 201, 201, 0.47);
     }
 
     .percentage {
@@ -53,10 +52,17 @@
   }
 }
 
-.chart-widget{
+.chart-widget {
   // border: 2px solid red;
   padding: 10px;
-   border: 1px solid gray;
-    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border: 1px solid rgba(201, 201, 201, 0.47);
+  .chart-title {
+    font-weight: 700;
+  }
+  hr {
+    border: 1px solid rgba(201, 201, 201, 0.47);
+  }
+  .icon{
+    color:  rgba(201, 201, 201, 0.47);
+  }
 }

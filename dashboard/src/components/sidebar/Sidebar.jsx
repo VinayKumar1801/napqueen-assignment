@@ -18,7 +18,7 @@ const Sidebar = () => {
       <div className="top">
         <span className="logo">
           <img
-            width="80%"
+            width="50%"
             src="https://i.postimg.cc/9QDMcLws/download-removebg-preview.png"
             alt="logo"
           />
@@ -27,52 +27,52 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          {/* <p className="title">MAIN</p> */}
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>
-          <p className="title">LISTS</p>
+          {/* <p className="title">LISTS</p> */}
 
           <li>
             <PersonOutlineIcon className="icon" />
-            <span>Users</span>
+            <span>Catalog</span>
           </li>
 
           <li>
             <StoreIcon className="icon" />
-            <span>Products</span>
+            <span>Inventory</span>
           </li>
           <li>
             <CreditCardIcon className="icon" />
-            <span>Orders</span>
+            <span>Advertising</span>
           </li>
           <li>
             <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
+            <span>Product Intelligence</span>
           </li>
-          <p className="title">USEFUL</p>
+          {/* <p className="title">USEFUL</p> */}
           <li>
             <InsertChartIcon className="icon" />
-            <span>Stats</span>
+            <span>Forcasting</span>
           </li>
           <li>
             <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
+            <span>Report Central</span>
           </li>
 
-          <p className="title">USER</p>
+          {/* <p className="title">USER</p> */}
           <li>
             <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
+            <span>Reports</span>
+          </li>
+          <li>
+            <ExitToAppIcon className="icon" />
+            <span>Link Accounts</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
-          </li>
-          <li>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
           </li>
         </ul>
       </div>

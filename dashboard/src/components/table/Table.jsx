@@ -8,7 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Switch from "@mui/material/Switch";
 import { useState } from "react";
-import { Checkbox } from "@mui/material";
+import { Badge, Checkbox } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const List = () => {
   const [automationEnabled, setAutomationEnabled] = useState(false);
@@ -112,16 +113,22 @@ const List = () => {
         <TableHead>
           <TableRow>
             <TableCell className="tableCell">Selection</TableCell>
-            <TableCell className="tableCell">Tracking ID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
+            <TableCell className="tableCell">Status</TableCell>
+            <TableCell className="tableCell">Campaign Name</TableCell>
+            <TableCell className="tableCell">Info</TableCell>
             <TableCell className="tableCell">Automation</TableCell>
             <TableCell className="tableCell">Dayparting</TableCell>
             <TableCell className="tableCell">Budget</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
+            <TableCell className="tableCell">Bidding Strategy</TableCell>
+            <TableCell className="tableCell">Spend</TableCell>
+            <TableCell className="tableCell">Revenue</TableCell>
+            <TableCell className="tableCell">Current Bids</TableCell>
+            <TableCell className="tableCell">Impression</TableCell>
+            <TableCell className="tableCell">CTR</TableCell>
+            <TableCell className="tableCell">Cony Rate</TableCell>
             <TableCell className="tableCell">Payment Method</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
+            <TableCell className="tableCell"></TableCell>
+            <TableCell className="tableCell"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -130,14 +137,23 @@ const List = () => {
               <TableCell className="tableCell">
                 <Checkbox /* Add Checkbox component here */ />
               </TableCell>
-              <TableCell className="tableCell">{row.id}</TableCell>
+              <TableCell className="tableCell">
+                <span className={`status ${row.status}`}>{row.status}</span>
+              </TableCell>
               <TableCell className="tableCell">
                 <div className="cellWrapper">
-                  <img src={row.img} alt="" className="image" />
+                  {/* <img src={row.img} alt="" className="image" /> */}
                   {row.product}
                 </div>
               </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
+              <TableCell
+                className="tableCell"
+                style={{ display: "flex", gap: "5px" }}
+              >
+                <Badge color="secondary">🆎</Badge>
+                <Badge color="secondary">➿</Badge>
+                <Badge color="secondary">✅</Badge>
+              </TableCell>
               <TableCell className="tableCell">
                 <Switch
                   checked={row.automation === "On"}
@@ -151,12 +167,28 @@ const List = () => {
                 />
               </TableCell>
               <TableCell className="tableCell">{row.budget}</TableCell>
-              <TableCell className="tableCell">{row.date}</TableCell>
-              <TableCell className="tableCell">{row.amount}</TableCell>
-              <TableCell className="tableCell">{row.method}</TableCell>
               <TableCell className="tableCell">
-                <span className={`status ${row.status}`}>{row.status}</span>
+                <u style={{ color: "blue" }}>Up & Down</u>
               </TableCell>
+              <TableCell className="tableCell">${row.id}</TableCell>
+              <TableCell className="tableCell">
+                ${row.id + Math.floor(Math.random() * 1000)}
+              </TableCell>
+              <TableCell className="tableCell">
+                ${Math.floor(Math.random() * 10)}
+              </TableCell>
+              <TableCell className="tableCell">
+                {Math.floor(Math.random() * 10)}K
+              </TableCell>
+              <TableCell className="tableCell">
+                {Math.floor(Math.random() * 10)}K
+              </TableCell>
+              <TableCell className="tableCell">
+                {Math.floor(Math.random() * 10)}
+              </TableCell>
+              <TableCell className="tableCell">{row.method}</TableCell>
+              <TableCell className="tableCell" style={{color:"blue"}}>Report</TableCell>
+              <TableCell className="tableCell"><MoreVertIcon/></TableCell>
             </TableRow>
           ))}
         </TableBody>
